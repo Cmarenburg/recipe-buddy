@@ -38,14 +38,14 @@ jobs:
         uses: docker/metadata-action@v4.1.1
         with:
           images: ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}
-          tags: type=semver,pattern={{version}}
+          tags: ${{ steps.meta.outputs.tags }}
           
       - name: Extract backend metadata (tags, labels) for Docker
         id: meta-backend
         uses: docker/metadata-action@v4.1.1
         with:
           images: ${{ env.REGISTRY }}/${{ env.BACKEND_IMAGE_NAME }}
-          tags: type=semver,pattern={{version}}
+          tags: ${{ steps.meta.outputs.tags }}
 
       - name: Build and push frontend Docker image
         uses: docker/build-push-action@v3.2.0
