@@ -64,6 +64,7 @@ export class UsersService {
     const grocyUrl = updateUserDto.grocyBaseUrl.endsWith('/')
       ? updateUserDto.grocyBaseUrl.slice(0, -1)
       : updateUserDto.grocyBaseUrl;
+      console.log(grocyUrl);
     try {
       const { data } = await axios.get(`${grocyUrl}/api/system/info`, {
         headers: {
