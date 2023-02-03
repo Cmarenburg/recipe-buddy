@@ -7,7 +7,7 @@ name: Create and publish Docker images
 
 on:
   release:
-    types: [published]
+    types: [published,workflow_dispatch]
 
 env:
   REGISTRY: ghcr.io
